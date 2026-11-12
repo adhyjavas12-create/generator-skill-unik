@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Generator Skill</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="kotak-mesin">
+            <h1>Generator Skill Unik</h1>
+            <p>
+                Masukkan namamu untuk melihat skill tersembunyimu!
+            </p>
+            <input
+                type="text"
+                id="namainput"
+                placeholder="Ketik namamu...">
+            <button onclick="cekSkill()">
+                Cek Sekarang!
+            </button>
+            <h2 id="hasilSkill">
+                Skill belum terdeteksi...
+            </h2>
+
+            <img
+            id="fotoSkill"
+            src="https://placehold.co/200x200?text=?"
+            width="400">
+
+        </div>
+        <script>
+            function cekSkill(){
+                // Perbaikan: Mengubah getElementByld menjadi getElementById (I besar)
+                let nama = document.getElementById("namainput").value;
+                
+                // Validasi tambahan: Cek apakah input kosong
+                if (nama.trim() === "") {
+                    alert("Masukkan nama kamu dulu ya!");
+                    return;
+                }
+
+                let daftarSkill = [
+                    "Tendangan Jumpa Genteng",
+                    "Skill issue",
+                    "Kaki bengkak",
+                    "Pace Mbappe",
+                    "Lucky"
+                ];
+
+                let daftarGambar =[
+                    "https://www.smsperkasa.com/_next/image?url=https%3A%2F%2Fcpanel-blog.smsperkasa.com%2Fwp-content%2Fuploads%2F2025%2F08%2Fgenteng-beton.jpg&w=3840&q=75",
+                    "https://i.pinimg.com/736x/61/95/93/619593d945acbafac6c75be93faec557.jpg",
+                    "https://cdn0-production-images-kly.akamaized.net/xSvtW3wS-S4H68QqA-LM1q-l4cI=/1280x720/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4661353/original/031966400_1700798569-shutterstock_1613513182.jpg",
+                    "https://www.planetsport.com/_next/image?url=https%3A%2F%2Fwww.planetsport.com%2Fimage-library%2Fland%2F1200%2Fk%2Fkylian-mbappe-psg-france-3-april-2022.webp&w=1600&q=75",
+                    "https://img.magnific.com/free-vector/green-lucky-clover_24877-81963.jpg"
+                ];
+                let acak = Math.floor(Math.random() * daftarSkill.length);
+                let skillPilihan = daftarSkill[acak];
+                let gambarPilihan= daftarGambar[acak];
+
+                // Perbaikan: Menambahkan spasi agar kalimatnya rapi
+                document.getElementById("hasilSkill").innerText = 
+                    nama + ", skill unikmu adalah: " + skillPilihan;
+                    document.getElementById("fotoSkill").src= gambarPilihan;
+            }
+        </script>
+    </body>
+</html>
